@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <title>PieChart Example</title>
+</head>
+<body>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        var myChart = document.getElementById('myChart').getContext('2d');
+
+        //Global Options
+        Chart.defaults.global.defaultFontFamily = 'Lato';
+        Chart.defaults.global.defaultFontSize = 18;
+        Chart.defaults.global.defaultFontColor = '#777';
+
+        var massPopChart = new Chart(myChart, {
+            type:'radar',//bar,horizontalbar, pie, line,donut,radar, polarArea
+            data:{
+                labels:['Boston','Worcester','Springfield','Cambridge','Lowell','Brockton'],
+                datasets:[{
+                    label: 'Population',
+                    data:[ 
+                        694583,
+                        185877,
+                        155032,
+                        118977,
+                        111670,
+                        95777 
+                    ],
+                    //backgroundColor: 'green',
+                    backgroundColor:[
+                        'pink',
+                        'green',
+                        'yellow',
+                        'blue',
+                        'purple',
+                        'brown'
+                    ],
+                    borderWidth:1,
+                    borderColor: '#777',
+                    hoverBorderWidth: 3,
+                    hoverBorderColor: 'black',
+
+
+
+                }]
+            },
+            options:{
+                title:{
+                    display:true,
+                    text:'Largest Cities in Massachusetts',
+                    fontSize: 25
+                },
+                legend:{
+                    //desplay:false,
+                    position:'right',
+                    labels:{
+                        fontColor:'black'
+                    }
+                },
+                layout:{
+                    padding:{
+                        left:50,
+                        right:0,
+                        bottom:0,
+                        top:0
+                    },
+                    tooltips:{
+                        enabled:true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
